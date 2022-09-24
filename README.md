@@ -1,5 +1,4 @@
 <!-- BEGIN_TF_DOCS -->
-[![Tests](https://github.com/terraform-cisco-modules/terraform-intersight-policies-adapter-configuration/actions/workflows/test.yml/badge.svg)](https://github.com/terraform-cisco-modules/terraform-intersight-policies-adapter-configuration/actions/workflows/test.yml)
 # Terraform Intersight Policies - Boot Order
 Manages Intersight Boot Order Policies
 
