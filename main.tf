@@ -107,10 +107,10 @@ locals {
           InterfaceName = v.interface_name,
           InterfaceSource = length(compact([v.interface_source])
           ) > 0 ? v.interface_source : "name"
-          IpType     = v.ip_type != null && v.ip_type != "" ? v.IpType : "IPv4",
-          MacAddress = v.mac_ddress != null ? v.mac_ddress : "",
+          IpType     = v.ip_type,
+          MacAddress = v.mac_ddress,
           Port       = v.port != null ? v.port : -1,
-          Slot       = v.slot != "" ? v.slot : "MLOM"
+          Slot       = v.slot
         }
         ) : length(regexall("Uefi", var.boot_mode)) > 0 && length(
         regexall("boot.San", v.object_type)) > 0 ? jsonencode(
@@ -161,18 +161,11 @@ locals {
           Subtype = v.sub_type != "" ? v.sub_type : "None"
         }
       ) : ""
-      enabled     = v.enabled != null ? v.enabled : true
+      enabled     = v.enabled
       name        = v.name
       object_type = v.object_type
     }
   ]
-
-  profiles = {
-    for v in var.profiles : v.name => {
-      name        = v.name
-      object_type = v.object_type != null ? v.object_type : "server.Profile"
-    }
-  }
 }
 
 resource "intersight_boot_precision_policy" "boot_order" {

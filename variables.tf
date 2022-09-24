@@ -1,7 +1,3 @@
-terraform {
-  experiments = [module_variable_optional_attrs]
-}
-
 #____________________________________________________________
 #
 # Boot Order Policy Variables Section.
@@ -28,7 +24,7 @@ variable "boot_devices" {
         * boot.Iscsi
         * boot.Pxe
         * boot.San
-    * interface_Source: (optional) - Used only by boot.Pxe.  Lists the supported Interface Source for PXE device.
+    * interface_source: (optional) - Used only by boot.Pxe.  Lists the supported Interface Source for PXE device.
       - name: (default) - Use interface name to select virtual ethernet interface.
       - mac - Use MAC address to select virtual ethernet interface.
       - port - Use port to select virtual ethernet interface.
@@ -41,7 +37,7 @@ variable "boot_devices" {
         * boot.PchStorage
         * boot.San
         * boot.SdCard
-    * mac_ddress - Used only by boot.Pxe.  The MAC Address of the underlying virtual ethernet interface used by the PXE boot device.
+    * mac_address - Used only by boot.Pxe.  The MAC Address of the underlying virtual ethernet interface used by the PXE boot device.
     * name: (required) - Name to Assign to the boot_device.
     * object_type: (required) - The Boot Order Type to Assign to the Boot Device.  Allowed Values are:
       - boot.Iscsi
@@ -83,25 +79,25 @@ variable "boot_devices" {
           - kvm-mapped-dvd - A KVM mapped DVD virtual media device.
           - kvm-mapped-hdd - A KVM mapped HDD virtual media device.
           - kvm-mapped-fdd - A KVM mapped FDD virtual media device.
-    * Wwpn - The WWPN Address of the underlying fiber channel interface used by the SAN boot device. Value must be in hexadecimal format xx:xx:xx:xx:xx:xx:xx:xx.
+    * wwpn - The WWPN Address of the underlying fiber channel interface used by the SAN boot device. Value must be in hexadecimal format xx:xx:xx:xx:xx:xx:xx:xx.
   EOT
   type = list(object(
     {
-      bootloader_description = optional(string)
-      bootloader_name        = optional(string)
-      bootloader_path        = optional(string)
-      enabled                = optional(bool)
-      InterfaceName          = optional(string)
-      interface_Source       = optional(string)
-      ip_type                = optional(string)
-      Lun                    = optional(number)
-      mac_ddress             = optional(string)
+      bootloader_description = optional(string, null)
+      bootloader_name        = optional(string, null)
+      bootloader_path        = optional(string, null)
+      enabled                = optional(bool, true)
+      interface_name         = optional(string, null)
+      interface_source       = optional(string, "name")
+      ip_type                = optional(string, "IPv4")
+      Lun                    = optional(number, 0)
+      mac_ddress             = optional(string, "")
       name                   = string
       object_type            = string
-      Port                   = optional(number)
-      slot                   = optional(string)
-      sub_type               = optional(string)
-      Wwpn                   = optional(string)
+      port                   = optional(number, null)
+      slot                   = optional(string, "MLOM")
+      sub_type               = optional(string, "")
+      wwpn                   = optional(string, null)
     }
   ))
 }
