@@ -1,4 +1,4 @@
-module "boot_policy" {
+module "boot_order" {
   source  = "terraform-cisco-modules/policies-boot-order/intersight"
   version = ">= 1.0.1"
 

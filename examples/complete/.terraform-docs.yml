@@ -3,7 +3,7 @@ version: '>= 0.14.0'
 formatter: markdown table
 
 content: |-
-  # Boot Order Policy Example
+  # Boot Order Configuration Policy Example
 
   To run this example you need to execute:
 
@@ -20,14 +20,14 @@ content: |-
   {{ include "./main.tf" }}
   ```
 
+  ### provider.tf
+  ```hcl
+  {{ include "./provider.tf" }}
+  ```
+
   ### variables.tf
   ```hcl
   {{ include "./variables.tf" }}
-  ```
-
-  ### versions.tf
-  ```hcl
-  {{ include "./versions.tf" }}
   ```
 
 output:
