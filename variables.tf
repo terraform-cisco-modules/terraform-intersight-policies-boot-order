@@ -90,7 +90,7 @@ variable "boot_devices" {
       interface_name         = optional(string, null)
       interface_source       = optional(string, "name")
       ip_type                = optional(string, "IPv4")
-      Lun                    = optional(number, 0)
+      lun                    = optional(number, 0)
       mac_ddress             = optional(string, "")
       name                   = string
       object_type            = string
