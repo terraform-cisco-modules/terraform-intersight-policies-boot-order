@@ -125,7 +125,7 @@ variable "enable_secure_boot" {
 }
 
 variable "name" {
-  default     = "boot_order"
+  default     = "default"
   description = "Name for the Policy."
   type        = string
 }
