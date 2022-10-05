@@ -157,7 +157,7 @@ func TestFull(t *testing.T) {
           "Port": 0,
           "Slot": "MLOM"
         }
-      ],
+	],
 	"ConfiguredBootMode": "Uefi",
 	"EnforceUefiSecureBoot": false
 }
