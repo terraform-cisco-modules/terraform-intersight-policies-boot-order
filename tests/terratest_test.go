@@ -73,7 +73,7 @@ func TestFull(t *testing.T) {
             "Description": "",
             "Name": "BOOTx64.EFI",
             "ObjectType": "boot.Bootloader",
-            "Path": "\\EFI\\BOOT\"
+            "Path": "\\\\EFI\\\\BOOT\\"
           },
           "ClassId": "boot.LocalDisk",
           "Enabled": true,
@@ -99,7 +99,7 @@ func TestFull(t *testing.T) {
             "Description": "",
             "Name": "BOOTx64.EFI",
             "ObjectType": "boot.Bootloader",
-            "Path": "\\EFI\\BOOT\"
+            "Path": "\\\\EFI\\\\BOOT\\"
           },
           "ClassId": "boot.San",
           "Enabled": true,
@@ -116,7 +116,7 @@ func TestFull(t *testing.T) {
             "Description": "",
             "Name": "BOOTx64.EFI",
             "ObjectType": "boot.Bootloader",
-            "Path": "\\EFI\\BOOT\"
+            "Path": "\\\\EFI\\\\BOOT\\"
           },
           "ClassId": "boot.San",
           "Enabled": true,
@@ -133,7 +133,7 @@ func TestFull(t *testing.T) {
             "Description": "",
             "Name": "BOOTx64.EFI",
             "ObjectType": "boot.Bootloader",
-            "Path": "\\EFI\\BOOT\"
+            "Path": "\\\\EFI\\\\BOOT\\"
           },
           "ClassId": "boot.LocalDisk",
           "Enabled": true,
@@ -147,7 +147,7 @@ func TestFull(t *testing.T) {
             "Description": "",
             "Name": "BOOTx64.EFI",
             "ObjectType": "boot.Bootloader",
-            "Path": "\\EFI\\BOOT\"
+            "Path": "\\\\EFI\\\\BOOT\\"
           },
           "ClassId": "boot.Iscsi",
           "Enabled": true,
