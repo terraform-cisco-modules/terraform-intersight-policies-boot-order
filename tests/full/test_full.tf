@@ -82,5 +82,5 @@ module "main" {
   description        = "${var.name} Boot Order Policy."
   enable_secure_boot = false
   name               = var.name
-  organization       = "default"
+  organization       = "terratest"
 }
