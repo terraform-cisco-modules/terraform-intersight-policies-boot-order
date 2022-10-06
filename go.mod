@@ -1,4 +1,4 @@
-module github.com/terraform-cisco-modules/terraform-intersight-pools-ip
+module github.com/terraform-cisco-modules/terraform-intersight-policies-boot-order
 
 go 1.18
 
