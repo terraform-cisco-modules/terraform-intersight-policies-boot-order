@@ -1,15 +1,5 @@
 <!-- BEGIN_TF_DOCS -->
-# Boot Order Configuration Policy Example
-
-To run this example you need to execute:
-
-```bash
-$ terraform init
-$ terraform plan
-$ terraform apply
-```
-
-Note that this example will create resources. Resources can be destroyed with `terraform destroy`.
+# Boot Order Policy Example
 
 ### main.tf
 ```hcl
@@ -101,7 +91,7 @@ terraform {
 provider "intersight" {
   apikey    = var.apikey
   endpoint  = var.endpoint
-  secretkey = var.secretkey
+  secretkey = fileexists(var.secretkeyfile) ? file(var.secretkeyfile) : var.secretkey
 }
 ```
 
@@ -120,9 +110,39 @@ variable "endpoint" {
 }
 
 variable "secretkey" {
-  description = "Intersight Secret Key."
+  default     = ""
+  description = "Intersight Secret Key Content."
+  sensitive   = true
+  type        = string
+}
+
+variable "secretkeyfile" {
+  default     = "blah.txt"
+  description = "Intersight Secret Key File Location."
   sensitive   = true
   type        = string
 }
 ```
+
+## Environment Variables
+
+### Terraform Cloud/Enterprise - Workspace Variables
+- Add variable apikey with the value of [your-api-key]
+- Add variable secretkey with the value of [your-secret-file-content]
+
+### Linux and Windows
+```bash
+export TF_VAR_apikey="<your-api-key>"
+export TF_VAR_secretkeyfile="<secret-key-file-location>"
+```
+
+To run this example you need to execute:
+
+```bash
+terraform init
+terraform plan -out="main.plan"
+terraform apply "main.plan"
+```
+
+Note that this example will create resources. Resources can be destroyed with `terraform destroy`.
 <!-- END_TF_DOCS -->
